@@ -21,7 +21,7 @@ public:
         int n=height.size();
         int i=0;
         int j=n-1;
-        for(int k=0;k<n;k++)
+        while(i<=j)
         {
             int heights=min(height[i],height[j]);
             int width=j-i;
