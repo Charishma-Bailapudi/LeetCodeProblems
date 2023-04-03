@@ -25,18 +25,14 @@ public:
 public:
     bool isValidBST(TreeNode* root) {
         inorder(root);
-        // for(int i:treedata)
-        //     cout<<i<<endl;
         for(int i=1;i<treedata.size();i++)
         {
             if(treedata[i-1]<treedata[i])
-            {
-                // cout<<"good";
+            { 
                 continue;
             }
             else
             {
-                // cout<<"bad";
                 return false;
             }
         }
