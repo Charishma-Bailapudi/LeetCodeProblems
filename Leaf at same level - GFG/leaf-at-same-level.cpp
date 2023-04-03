@@ -113,13 +113,10 @@ class Solution{
         while(!que.empty())
         {
             int size = que.size();
-            // vector<int> sub;
             for(int i=0;i<size;i++)
             {
                 Node* curr = que.front();
                 que.pop();
-                // sub.push_back(curr->data);
-                
                 if(curr->left!=NULL)
                 {
                     que.push(curr->left);
@@ -131,7 +128,7 @@ class Solution{
                 if(curr->right==NULL &&curr->left==NULL)
                  count=1;
             }
-            // level.push_back(sub);
+            
             if(count==1 && que.size()!=0)
                  return 0;
         }
