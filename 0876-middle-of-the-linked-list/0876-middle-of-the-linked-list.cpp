@@ -26,6 +26,7 @@ public:
         int ans=(len/2)+1;    
         for(int i=1;i<ans;i++)
         {
+            
             head=head->next;
         }
         return head;
