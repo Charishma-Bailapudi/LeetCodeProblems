@@ -35,7 +35,7 @@ public:
             list.push_back(list2->val);
             list2 = list2->next;
         }
-           sort(list.begin(),list.end());
+           // sort(list.begin(),list.end());
             ListNode* head = NULL;
             ListNode* tail = NULL;
             for (int val : list)
@@ -49,7 +49,7 @@ public:
                 else
                 {
                     tail->next = new_node;
-                    tail = new_node;
+                    tail = tail->next;
                 }
         }
         return head;
