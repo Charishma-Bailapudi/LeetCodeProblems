@@ -50,21 +50,26 @@ public:
 
 /* The below method sorts the stack s 
 you are required to complete the below method */
+void sorting(int n,stack<int>&s)
+{
+    if(s.empty() || n>s.top())
+    {
+        s.push(n);
+        return;
+    }
+    int y=s.top();
+    s.pop();
+    sorting(n,s);
+    s.push(y);
+}
 void SortedStack :: sort()
 {
-    stack<int> tmp;
-    while (!s.empty()) {
-        int curr = s.top();
-        s.pop();
-        while (!tmp.empty() && curr > tmp.top()) {
-            s.push(tmp.top());
-            tmp.pop();
-        }
-        tmp.push(curr);
-    }
-    while (!tmp.empty()) {
-        s.push(tmp.top());
-        tmp.pop();
-    }
+   if(s.empty())
+    return;
+   int x=s.top();
+   s.pop();
+   sort();
+   
+   sorting(x,s);
    
 }
