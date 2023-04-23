@@ -41,9 +41,10 @@ class Solution
         for (int i = 0; i < n; i++) {
             // Find a free slot for this job (Note that we start
             // from the last possible slot)
-            for (int j = min(n, arr[i].dead) - 1; j >= 0; j--) {
+            for (int j = arr[i].dead - 1; j >= 0; j--) {
                 // Free slot found
-                if (slot[j] == false) {
+                if (slot[j] == false)
+                {
                     ans.push_back(arr[i].id); // Add this job to result
                     slot[j] = true; // Make this slot occupied
                     count++; // Increment the number of jobs scheduled
