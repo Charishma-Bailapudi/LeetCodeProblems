@@ -14,34 +14,17 @@ public:
     {
          if (head == nullptr || head->next == nullptr)
             return head;
-        vector<int>v;
-        int count=0;
-        ListNode* curr=head;
-        while(curr!=NULL)
-        {
-           v.push_back(curr->val);
-            curr=curr->next; 
-        }
-         ListNode* res=new ListNode(0);
-         ListNode* ans=res;
-         ListNode* res1=new ListNode(0);
-         ListNode* ans1=res1;
-        for(int val:v)
-        {
-            count++;
-            if(count%2!=0)
-            {
-            ans->next=new ListNode(val);
-            ans=ans->next;
-            }
-            else
-            {
-               ans1->next=new ListNode(val);
-               ans1=ans1->next; 
-            }
-            
-        }
-        ans->next=res1->next;
-        return res->next;
+          ListNode* odd=head;
+          ListNode* even=head->next;
+          ListNode* evenhead=head->next;
+          while(even!=NULL && even->next!=NULL)
+          {
+              odd->next=odd->next->next;
+              odd=odd->next;
+              even->next=even->next->next;
+              even=even->next;
+          }
+        odd->next=evenhead;
+        return head;
     }
 };
