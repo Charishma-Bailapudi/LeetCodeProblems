@@ -20,7 +20,8 @@ public:
                 temp->next=temp->next->next;
                 continue;
             }
-            temp=temp->next;
+            else
+              temp=temp->next;
            
         }
         return head;
