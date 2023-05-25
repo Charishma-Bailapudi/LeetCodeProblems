@@ -8,54 +8,7 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-// class Solution {
-// public:
-//      ListNode* reverseList(ListNode* head,int n) {
-//         if(head==NULL)
-//         {
-//             return 0 ;
-//         }
-//         int count=0;
-//         ListNode* curr=head;
-//         ListNode* prev=NULL;
-//         while(head->next!=NULL)
-//         {
-//             head=head->next;
-//             curr->next=prev;
-//             prev=curr;
-//             curr=head;
-//             count++;
-//             if(count==n-1)
-//                 break;
-//         } 
-//         curr->next=prev;
-         
-//         return curr;
-//     }
-    
-    
-//     ListNode* reverseBetween(ListNode* head, int left, int right) 
-//     {
-//       if(left==right)
-//           return head;
-//       int n=left-right+1;
-//         int count=0;
-//       ListNode*temp=head;
-//       ListNode*temp2=head;
-//       while(temp!=NULL)
-//       {
-//           count++;
-//           if(count==left)
-//           {
-//               ListNode* temp1=reverseList(temp,n);
-//               temp->next=temp1;
-//           }  
-         
-//       }
-       
-//         return temp;
-//     }
-// };
+
 class Solution {
 public:
     ListNode* reverseList(ListNode* head, int n) 
