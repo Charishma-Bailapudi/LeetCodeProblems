@@ -57,6 +57,8 @@ public:
             dfs(i, visited, adj, cnt);
 
             ans = max(ans, cnt);
+            if(ans==n)
+                return n;
         }
 
         //return the bomb with maximum number of connected bombs
