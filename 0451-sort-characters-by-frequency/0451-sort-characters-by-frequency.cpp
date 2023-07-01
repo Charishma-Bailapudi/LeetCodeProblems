@@ -4,11 +4,11 @@ public:
     {
         priority_queue<pair<int, char>> d;
         unordered_map<char,int>mp;
-        for(auto &x:s)
+        for(auto x:s)
         {
             mp[x]++;
         }
-        for(auto &y:mp)
+        for(auto y:mp)
         {
             d.push({y.second,y.first});
         }
