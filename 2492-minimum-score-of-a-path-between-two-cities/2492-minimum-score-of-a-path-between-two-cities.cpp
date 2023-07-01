@@ -5,7 +5,7 @@ class Solution {
 public:
     void make(vector<int>& parent, vector<int>& size)
     {
-        for(int i = 0; i < parent.size(); i++) 
+        for(int i = 1; i < parent.size(); i++) 
         {
             parent[i] = i;
             size[i] = 1;
