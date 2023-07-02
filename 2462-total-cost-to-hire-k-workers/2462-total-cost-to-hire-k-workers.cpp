@@ -1,38 +1,49 @@
 class Solution {
 public:
-    long long totalCost(vector<int>& costs, int k, int candidates) {
-        //priority queue to find minimum cost efficiently
-        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
-        int i=0, j=costs.size()-1;
+    long long totalCost(vector<int>& costs, int k, int candidates)
+    {
 
-        //store initial candidates cost from left
-        for(int c=0; c<candidates; c++) {
-            pq.push({costs[i],i});
-            i++;
-        }
-        //store initial candidates cost from right
-        for(int c=0; c<candidates && j>=i; c++) {
-            pq.push({costs[j],j});
-            j--;
-        }
-        long long total_cost = 0;
-        //sum of minimum costs
-        while(k > 0) {
-            total_cost += pq.top().first;
-            int ind = pq.top().second;
-            pq.pop();
-            k -= 1;
-            //if min cost is from right, i.e ind > j and it is already not in priority queue, i.e j>=i
-            if(ind>j && j>=i) {
-                pq.push({costs[j],j});
-                j--;
-            } 
-            //if min cost is from left, i.e ind < i and it is already not in priority queue, i.e i<=j
-            else if(ind<i && i<=j){
-                pq.push({costs[i],i});
+        priority_queue<int,vector<int>,greater<int>> p1,p2;
+        int i=0,j=costs.size()-1;
+        long long sum=0;
+        int x,y;
+        while(k>0)
+        {
+            while(p1.size()<candidates && i<=j)
+            {
+                p1.push({costs[i]});
                 i++;
             }
+            
+            while(p2.size()<candidates && i<=j)
+            {
+                p2.push({costs[j]});
+                j--;
+            }
+             
+            if(p1.size()>0) x=p1.top();
+            else x=INT_MAX;
+            
+            if(p2.size()>0)  y=p2.top();
+            else y=INT_MAX;
+            
+            
+            if(x<=y)
+            {
+                sum+=x;
+                p1.pop();
+            }
+            else
+            {
+                sum+=y;
+                p2.pop();
+            }
+            k--;
+           
         }
-        return total_cost;
+        
+        return sum;
+        
     }
 };
+    
