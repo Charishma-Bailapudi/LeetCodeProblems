@@ -11,8 +11,7 @@ public:
         {
             swap(nums[index],nums[j]);
             solve(nums,ans,index+1);
-            swap(nums[index],nums[j]);
-                
+            swap(nums[index],nums[j]);                                                                                   
         }
     }
 public:
