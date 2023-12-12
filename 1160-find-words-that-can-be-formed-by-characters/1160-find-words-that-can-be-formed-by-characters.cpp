@@ -3,18 +3,43 @@ public:
     int countCharacters(vector<string>& words, string chars)
     {
          int cnt[26] = {}, res = 0;
-          for (auto ch : chars) 
-              ++cnt[ch - 'a'];
-          for (auto &w : words) {
-            int cnt1[26] = {}, match = true;
-            for (auto ch : w)
-              if (++cnt1[ch - 'a'] > cnt[ch - 'a']) {
-                match = false;
-                break;
-              }
-            if (match) 
-                res += w.size();
+        
+          for (auto ch:chars) 
+          {
+              cnt[ch-'a']++;
           }
-          return res;
+         
+        for(auto x:words)
+        {
+            int cnt1[26]={};
+            
+            for(auto ch:x)
+            {
+                cnt1[ch-'a']++;
+            }
+            
+            int flag=1;
+            
+           for(auto ch:x)
+           {
+               if(cnt1[ch-'a']<=cnt[ch-'a'])
+               {
+                   int flag=1;
+               }
+               else
+               {
+                   flag=0;
+                   break;
+               }
+           }
+            
+            if(flag)
+            {
+                res+=x.size();
+                // cout<<"res is"<<res<<endl;
+            }
+        }
+        return res;
+
     }
 };
