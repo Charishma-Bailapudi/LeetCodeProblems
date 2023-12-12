@@ -2,24 +2,12 @@ class Solution {
 public:
     int findSpecialInteger(vector<int>& arr) 
     {
-        map<int,int>mp;
-        for(int i=0;i<arr.size();i++)
+      unordered_map<int,int> mp;
+        for(auto& num:arr)
         {
-            mp[arr[i]]++;
+            mp[num]++;
+            if(mp[num] > (0.25 * arr.size())) return num;
         }
-        int maxi=0;
-      
-        for(auto x:mp)
-        {
-            
-            double occ = (static_cast<double>(x.second) / arr.size()) * 100.0;
-        
-            if(occ>25.0)
-            {
-                maxi=x.first;
-                break;
-            }
-        }
-        return maxi;
+        return -1;
     }
 };
