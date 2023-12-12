@@ -11,7 +11,9 @@ public:
       
         for(auto x:mp)
         {
-            double occ = (static_cast<double>(x.second) / arr.size()) * 100.0; 
+            
+            double occ = (static_cast<double>(x.second) / arr.size()) * 100.0;
+        
             if(occ>25.0)
             {
                 maxi=x.first;
