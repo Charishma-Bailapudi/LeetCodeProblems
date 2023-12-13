@@ -1,21 +1,20 @@
 class Solution {
 public:
-    int totalMoney(int n)
+    int totalMoney(int n) 
     {
-        int ans = 0;
-        int monday = 1;
-        
-        while (n > 0)
-        {
-            for (int day = 0; day < min(n, 7); day++)
-            {
-                ans += monday + day;
+        int w = n / 7;
+        int money = w * 28;
+        money += (7 * w * (w - 1)) / 2;
+
+        if (n % 7 != 0) {
+            int extraDays = n % 7;
+            int moneyToAdd = w + 1;
+            for (int i = 0; i < extraDays; ++i) {
+                money += moneyToAdd;
+                moneyToAdd += 1;
             }
-            
-            n=n-7;
-            monday++;
         }
-        
-        return ans;
+
+        return money;
     }
 };
