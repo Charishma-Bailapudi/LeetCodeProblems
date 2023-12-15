@@ -1,18 +1,24 @@
 class Solution {
 public:
-    string destCity(vector<vector<string>>& paths) 
+    string destCity(vector<vector<string>>& paths)
     {
-        unordered_set<string>mp;
-        for(auto &x:paths)
-        {
-            mp.insert(x[0]);
-        }
+        set<string>ans;
+      
+        for (int i = 0; i < paths.size(); i++) 
+         {
+            ans.insert(paths[i][0]);
+         }
         
-        for(auto &y:paths)
-        {
-            if(mp.find(y[1])==mp.end())
-                return y[1];
-        }
-        return {};
+         for (int i = 0; i < paths.size(); i++) 
+          {
+             string com=paths[i][1];
+             
+             if(ans.find(com) == ans.end())
+             {
+                 return com;
+             }
+          }
+        
+        return "";
     }
 };
